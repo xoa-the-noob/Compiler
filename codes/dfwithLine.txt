@@ -1,0 +1,33 @@
+0include<stdio.h>
+1include<stdlib.h>
+2include<string.h>
+3nt main(void)
+4
+5   FILE *p1, *p2;
+6   char c,num[1000];
+7   int i,k;
+8   int j = 0;
+9   p1 = fopen("S1P3Try2.c", "r");
+:   p2 = fopen("dfwithLine.txt", "w");
+;    if(!p1)
+<       printf("\nFile can't be opened!");
+=   else
+>   {
+?     	while((c = fgetc(p1)) != EOF)
+@     	{
+A     	     char str[100000];
+B     	     fgets(str, 1000, p1);
+C            char temp = j + '0';
+D            putc(temp,p2);
+E            fputs(str,p2);
+F            j++;
+G       }
+H   }
+I   fclose(p1);
+J   fclose(p2);
+K    printf("Code With Line Number:\n\n");
+L   p2 = fopen("dfwithLine.txt", "r");
+M  while( ( (c = fgetc(p2)) != EOF ) )
+N       printf("%c", c);
+O    return 0;
+P
